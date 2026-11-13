@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public record UserSignupRequest(
         @NotBlank @Size(min = 3, max = 50) String username,
-        @NotBlank @Size(min = 8, max = 100) String password) {
+        @NotBlank @Size(min = 8, max = 72) String password) {
 
     public User toEntity() {
         return new User(username, password);

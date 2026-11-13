@@ -21,6 +21,10 @@ public class UserException extends RuntimeException {
         return new UserException(HttpStatus.NOT_FOUND, "User not found: username=" + username);
     }
 
+    public static UserException passwordTooLong(int maxBytes) {
+        return new UserException(HttpStatus.BAD_REQUEST, "password: must be at most " + maxBytes + " bytes in UTF-8");
+    }
+
     public static UserException duplicateUsername(String username) {
         return new UserException(HttpStatus.CONFLICT, "Username already exists: " + username);
     }
